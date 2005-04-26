@@ -1,7 +1,7 @@
 Source: libid3tag
 Priority: optional
 Section: sound
-Build-Depends: dpatch, debhelper (>= 3), gettext, zlib1g-dev, gperf
+Build-Depends: dpatch, debhelper (>= 4), gettext, zlib1g-dev, gperf
 Maintainer: Debian QA Group <packages@qa.debian.org>
 Standards-Version: 3.6.1
 

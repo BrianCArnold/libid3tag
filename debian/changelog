@@ -1,3 +1,15 @@
+libid3tag (0.15.1b-5) unstable; urgency=low
+
+  * QA upload.
+  * 12_endless_loop: Fix endless loop in utf16.c (patch by Ronald Bultje).
+    Closes: #304913.
+  * Switch to debhelper 4.
+  * debian/rules:
+    - Remove support for DEB_BUILD_OPTIONS=debug.
+    - Add support for DEB_BUILD_OPTIONS=noopt.
+
+ -- Matej Vela <vela@debian.org>  Tue, 26 Apr 2005 18:26:14 +0200
+
 libid3tag (0.15.1b-4.1) unstable; urgency=low
 
   * Orphaning this package, setting maintainer to QA.
@@ -236,5 +248,3 @@ mad (0.10.2b-0) unstable; urgency=low
   * Initial Release.
 
  -- Sean 'Shaleh' Perry <shaleh@debian.org>  Tue, 23 May 2000 12:25:00 -0700
-
-
