@@ -1,8 +1,9 @@
 Source: libid3tag
 Priority: optional
 Section: sound
-Build-Depends: dpatch, debhelper (>= 4), gettext, zlib1g-dev, gperf
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: cdbs, dpatch, debhelper (>= 4.1.0), gettext, zlib1g-dev, gperf
+Maintainer: Mad Maintainers <pkg-mad-maintainers@lists.alioth.debian.org>
+Uploaders: Sam Clegg <samo@debian.org>, Kurt Roeckx <kurt@roeckx.be>, Clément Stenac <zorglub@via.ecp.fr>
 Standards-Version: 3.6.1
 
 Package: libid3tag0

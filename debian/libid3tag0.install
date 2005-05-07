@@ -1,1 +1,1 @@
-debian/tmp/usr/lib/libid3tag.so.*
+debian/tmp/usr/lib/libid3tag.so.* /usr/lib

@@ -1,3 +1,21 @@
+libid3tag (0.15.1b-6) unstable; urgency=low
+
+  * Clément Stenac:
+    * debian/control: set new Maintainer: and Uploaders:
+          pkg-mad-maintainers@lists.alioth.debian.org (Closes: #300098)
+    * Convert to CDBS and use latest debhelper
+    * Convert changelog and control to UTF8
+    * Better copyright file
+  * Sam Clegg:
+    * debian/libid3tag0.postinst: removed since debhelper runs ldconfig
+    for us.
+    * debian/libid3tag0-dev.install: install the pkg-config file.
+    * debian/rules: remove rule for installing pkg-config file.
+  * Kurt Roeckx
+    * Add watch file.
+
+ -- Sam Clegg <samo@debian.org>  Sat, 7 May 2005 15:19:11 +0100
+
 libid3tag (0.15.1b-5) unstable; urgency=low
 
   * QA upload.
@@ -248,3 +266,5 @@ mad (0.10.2b-0) unstable; urgency=low
   * Initial Release.
 
  -- Sean 'Shaleh' Perry <shaleh@debian.org>  Tue, 23 May 2000 12:25:00 -0700
+
+

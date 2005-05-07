@@ -2,7 +2,7 @@
 ## 10_a_capella.dpatch by  <kyle@debian.org>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: No description.
+## DP: Fix typo in A Capella genre
 
 if [ $# -lt 1 ]; then
     echo "`basename $0`: script expects -patch|-unpatch as argument" >&2
