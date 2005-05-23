@@ -1,3 +1,10 @@
+libid3tag (0.15.1b-7) unstable; urgency=low
+
+  * Set the shlibs again.  It was lost in the coversion to cdbs.
+    (Closes: #311544)
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Mon, 23 May 2005 19:12:10 +0200
+
 libid3tag (0.15.1b-6) unstable; urgency=low
 
   * Clément Stenac:
