@@ -1,8 +1,9 @@
 #! /bin/sh -e
-## 10_a_capella.dpatch by  <kyle@debian.org>
+## 10_utf16.dpatch by  <kurt@roeckx.be>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: Fix UTF16 parsing bug
+## DP: Handle bogus UTF16 sequences that have a length that is not
+## DP: an even number of 8 bit characters.
 
 if [ $# -lt 1 ]; then
     echo "`basename $0`: script expects -patch|-unpatch as argument" >&2
@@ -23,15 +24,25 @@ esac
 exit 0
 
 @DPATCH@
-diff -u libid3tag-0.15.1b.old/utf16.c libid3tag-0.15.1b/utf16.c
---- libid3tag-0.15.1b.old/utf16.c
-+++ libid3tag-0.15.1b/utf16.c	
-@@ -250,6 +250,8 @@
-   id3_ucs4_t *ucs4;
+diff -urNad libid3tag-0.15.1b/utf16.c /tmp/dpep.tKvO7a/libid3tag-0.15.1b/utf16.c
+--- libid3tag-0.15.1b/utf16.c	2006-01-13 15:26:29.000000000 +0100
++++ /tmp/dpep.tKvO7a/libid3tag-0.15.1b/utf16.c	2006-01-13 15:27:19.000000000 +0100
+@@ -282,5 +282,18 @@
  
-   end = *ptr + (length & ~1);
-+  if (end == *ptr)
-+    return 0;
+   free(utf16);
  
-   utf16 = malloc((length / 2 + 1) * sizeof(*utf16));
-   if (utf16 == 0)
++  if (end == *ptr && length % 2 != 0)
++  {
++     /* We were called with a bogus length.  It should always
++      * be an even number.  We can deal with this in a few ways:
++      * - Always give an error.
++      * - Try and parse as much as we can and
++      *   - return an error if we're called again when we
++      *     already tried to parse everything we can.
++      *   - tell that we parsed it, which is what we do here.
++      */
++     (*ptr)++;
++  }
++
+   return ucs4;
+ }
