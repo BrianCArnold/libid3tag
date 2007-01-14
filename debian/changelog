@@ -1,3 +1,12 @@
+libid3tag (0.15.1b-9) unstable; urgency=high
+
+  * Handle unknown/invalid encodings in id3_compat_fixup().
+    id3_parse_string() returns NULL in that case and then we got
+    a segfault in id3_ucs4_length().  (Closes: #405801)
+    Thanks to Andreas Henriksson <andreas@fatal.se>
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Sun, 14 Jan 2007 14:46:12 +0000
+
 libid3tag (0.15.1b-8) unstable; urgency=low
 
   * Change 10_utf16.dpatch so that it doesn't return an error in case
