@@ -1,3 +1,9 @@
+libid3tag (0.15.1b-10) unstable; urgency=low
+
+  * Reupload with the the CVS directories.
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Sat, 20 Jan 2007 16:57:31 +0000
+
 libid3tag (0.15.1b-9) unstable; urgency=high
 
   * Handle unknown/invalid encodings in id3_compat_fixup().
