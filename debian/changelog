@@ -1,3 +1,17 @@
+libid3tag (0.15.1b-12) unstable; urgency=medium
+
+  * Switch to debhelper compat level 9 (Closes: #817527)
+  * Add multiarch support. Patch from Frédéric Brière <fbriere@fbriere.net>
+    (Closes: #698959, #723192)
+  * Add ${misc:Depends} to the Depends lines
+  * Switch to "3.0 (quilt)" source format.
+  * Use ${binary:Version} instead of ${Source-Version}
+  * Don't disable debugging.
+  * Add symbols file
+  * Remove libid3tag.la
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Sun, 24 Jul 2016 20:07:55 +0200
+
 libid3tag (0.15.1b-11) unstable; urgency=medium
 
   [ Fernando Seiti Furusato <ferseiti@br.ibm.com> ]
