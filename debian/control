@@ -3,7 +3,7 @@ Priority: optional
 Section: sound
 Build-Depends: cdbs (>= 0.4.93~), dh-autoreconf, quilt, debhelper (>= 9), gettext, zlib1g-dev, gperf
 Maintainer: Mad Maintainers <pkg-mad-maintainers@lists.alioth.debian.org>
-Uploaders: Sam Clegg <samo@debian.org>, Kurt Roeckx <kurt@roeckx.be>, Clément Stenac <zorglub@debian.org>
+Uploaders: Sam Clegg <samo@debian.org>, Kurt Roeckx <kurt@roeckx.be>
 Standards-Version: 3.6.1
 
 Package: libid3tag0

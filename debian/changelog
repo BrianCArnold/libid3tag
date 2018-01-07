@@ -1,3 +1,10 @@
+libid3tag (0.15.1b-13) unstable; urgency=medium
+
+  * gperf now uses size_t instead of unsigned int (Closes: #869598)
+  * Remove Clément Stenac from Uploaders (Closes: #808767)
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Sun, 07 Jan 2018 12:33:47 +0100
+
 libid3tag (0.15.1b-12) unstable; urgency=medium
 
   * Switch to debhelper compat level 9 (Closes: #817527)

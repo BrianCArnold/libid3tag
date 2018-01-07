@@ -2,3 +2,4 @@
 10_utf16.dpatch
 11_unknown_encoding.dpatch
 add-m4-directory.patch
+gperf_size_t.patch
