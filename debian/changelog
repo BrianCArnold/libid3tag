@@ -1,3 +1,12 @@
+libid3tag (0.15.1b-14) unstable; urgency=medium
+
+  * Remove old alioth list as maintainer (Closes: #899861)
+  * Remove Sam Clegg from uploaders
+  * Add upstream signing key
+  * Update watch file to find the signature file
+
+ -- Kurt Roeckx <kurt@roeckx.be>  Sun, 10 Mar 2019 16:35:25 +0100
+
 libid3tag (0.15.1b-13) unstable; urgency=medium
 
   * gperf now uses size_t instead of unsigned int (Closes: #869598)
