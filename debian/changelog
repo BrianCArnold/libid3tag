@@ -17,6 +17,9 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
     Closes: #1020661
 
+  [ Andreas Tille ]
+  * Standards-Version: 4.7.0 (routine-update)
+
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
 libid3tag (0.15.1b-14) unstable; urgency=medium
