@@ -8,6 +8,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
     Closes: #990837
   * Point watch file to https://codeberg.org/tenacityteam/libid3tag/
   * DEP5 copyright
+  * Depends: pkg-config => pkgconf
 
   [ Vagrant Cascadian ]
   * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
