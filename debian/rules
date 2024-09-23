@@ -6,17 +6,20 @@
 
 DEB_DH_MAKESHLIBS_ARGS_libid3tag0 = -V 'libid3tag0 (>= 0.15.1b)'
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/rules/autoreconf.mk
-include /usr/share/cdbs/1/class/autotools.mk
-
 DEB_CONFIGURE_EXTRA_FLAGS=--enable-shared --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) CFLAGS="-ffile-prefix-map=$(CURDIR)=."
 
-install/libid3tag0-dev:: debian/id3tag.pc
-	mkdir -p debian/$(cdbs_curpkg)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > debian/$(cdbs_curpkg)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/id3tag.pc
+DEVPKG := libid3tag0-dev
 
-clean::
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	mkdir -p debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/id3tag.pc
+
+override_dh_clean:
+	dh_clean
 	# annoying lintian errors
 	rm -f config.cache libz/config.log \
 		libz/config.status compat.c frametype.c

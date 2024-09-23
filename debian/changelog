@@ -10,6 +10,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * DEP5 copyright
   * Depends: pkg-config => pkgconf
   * Make short description of lib and devel package distinct
+  * Replace cdbs by short dh
 
   [ Vagrant Cascadian ]
   * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
