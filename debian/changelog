@@ -12,21 +12,19 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Make short description of lib and devel package distinct
   * Replace cdbs by short dh
   * Enable hardening flags
-
-  [ Vagrant Cascadian ]
-  * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
-    Closes: #1020661
-
-  [ Andreas Tille ]
   * Standards-Version: 4.7.0 (routine-update)
   * debhelper-compat 13 (routine-update)
   * Remove trailing whitespace in debian/changelog (routine-update)
   * Remove trailing whitespace in debian/rules (routine-update)
   * Rules-Requires-Root: no (routine-update)
-  Trim trailing whitespace.
-  Strip unusual field spacing from debian/control.
-  Refer to specific version of license GPL-2+.
-  Fix day-of-week for changelog entry 0.15.1b-8.
+  * Trim trailing whitespace.
+  * Strip unusual field spacing from debian/control.
+  * Refer to specific version of license GPL-2+.
+  * Fix day-of-week for changelog entry 0.15.1b-8.
+
+  [ Vagrant Cascadian ]
+  * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
+    Closes: #1020661
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 

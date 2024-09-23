@@ -24,3 +24,7 @@ override_dh_clean:
 	# annoying lintian errors
 	rm -f config.cache libz/config.log \
 		libz/config.status compat.c frametype.c
+
+override_dh_missing:
+	find debian -name "*.la" -delete
+	dh_missing
