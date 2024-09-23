@@ -1,7 +1,7 @@
 Source: libid3tag
 Priority: optional
 Section: sound
-Build-Depends: dh-autoreconf, debhelper (>= 9), gettext, zlib1g-dev, gperf
+Build-Depends:  debhelper-compat (= 13), gettext, zlib1g-dev, gperf
 Maintainer:  Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Uploaders: Kurt Roeckx <kurt@roeckx.be>
 Standards-Version: 4.7.0
