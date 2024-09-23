@@ -1,2 +1,4 @@
-version=3
-opts=pgpsigurlmangle==s/$/.sign/ ftp://ftp.mars.org/mpeg/ libid3tag-(.*)\.tar\.gz
+version=4
+
+opts=pgpsigurlmangle==s/$/.sign/ \
+https://codeberg.org/tenacityteam/libid3tag/tags .*/libid3tag/archive/(\d[.\d]+)\.tar\.gz

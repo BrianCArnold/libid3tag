@@ -4,6 +4,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Maintenance in Debian Multimedia team
   * Fix library version in pkgconfig
     Closes: #990837
+  * Point watch file to https://codeberg.org/tenacityteam/libid3tag/
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
