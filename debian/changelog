@@ -20,6 +20,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   [ Andreas Tille ]
   * Standards-Version: 4.7.0 (routine-update)
   * debhelper-compat 13 (routine-update)
+  * Remove trailing whitespace in debian/changelog (routine-update)
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
@@ -142,7 +143,7 @@ libid3tag (0.15.1b-3) unstable; urgency=medium
     and compat.c being generated empty. This ends up creating
     an incompatible change in the shared object. Sorry.
     (closes: #270449, #270450, #270378)
- 
+
  -- Kyle McMartin <kyle@debian.org>  Tue, 7 Sep 2004 12:07:11 -0400
 
 libid3tag (0.15.1b-2) unstable; urgency=low
