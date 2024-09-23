@@ -26,6 +26,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   Trim trailing whitespace.
   Strip unusual field spacing from debian/control.
   Refer to specific version of license GPL-2+.
+  Fix day-of-week for changelog entry 0.15.1b-8.
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
@@ -90,7 +91,7 @@ libid3tag (0.15.1b-8) unstable; urgency=low
     an utf16 string with an odd number of bytes and just tells that it
     parsed them.
 
- -- Kurt Roeckx <kurt@roeckx.be>  Mon, 13 Jan 2006 15:32:41 +0100
+ -- Kurt Roeckx <kurt@roeckx.be>  Fri, 13 Jan 2006 15:32:41 +0100
 
 libid3tag (0.15.1b-7) unstable; urgency=low
 
