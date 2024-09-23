@@ -1,8 +1,8 @@
 Source: libid3tag
 Priority: optional
 Section: sound
-Build-Depends:  debhelper-compat (= 13), gettext, zlib1g-dev, gperf
-Maintainer:  Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Build-Depends: debhelper-compat (= 13), gettext, zlib1g-dev, gperf
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
 Uploaders: Kurt Roeckx <kurt@roeckx.be>
 Standards-Version: 4.7.0
 Vcs-Browser: https://salsa.debian.org/multimedia-team/libid3tag
