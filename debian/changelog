@@ -21,6 +21,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Standards-Version: 4.7.0 (routine-update)
   * debhelper-compat 13 (routine-update)
   * Remove trailing whitespace in debian/changelog (routine-update)
+  * Remove trailing whitespace in debian/rules (routine-update)
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 

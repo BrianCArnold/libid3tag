@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # makefile for libid3tag - using cdbs
 
-# Uncomment this to turn on verbose mode. 
+# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
 DEB_DH_MAKESHLIBS_ARGS_libid3tag0 = -V 'libid3tag0 (>= 0.15.1b)'
