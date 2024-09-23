@@ -23,6 +23,7 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Remove trailing whitespace in debian/changelog (routine-update)
   * Remove trailing whitespace in debian/rules (routine-update)
   * Rules-Requires-Root: no (routine-update)
+  Trim trailing whitespace.
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
@@ -364,5 +365,3 @@ mad (0.10.2b-0) unstable; urgency=low
   * Initial Release.
 
  -- Sean 'Shaleh' Perry <shaleh@debian.org>  Tue, 23 May 2000 12:25:00 -0700
-
-
