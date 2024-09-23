@@ -10,7 +10,7 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/autoreconf.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
-DEB_CONFIGURE_EXTRA_FLAGS=--enable-shared --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
+DEB_CONFIGURE_EXTRA_FLAGS=--enable-shared --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) CFLAGS="-ffile-prefix-map=$(CURDIR)=."
 
 install/libid3tag0-dev:: debian/id3tag.pc
 	mkdir -p debian/$(cdbs_curpkg)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
