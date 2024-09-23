@@ -7,6 +7,7 @@
 DEB_DH_MAKESHLIBS_ARGS_libid3tag0 = -V 'libid3tag0 (>= 0.15.1b)'
 
 DEB_CONFIGURE_EXTRA_FLAGS=--enable-shared --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) CFLAGS="-ffile-prefix-map=$(CURDIR)=."
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 DEVPKG := libid3tag0-dev
 
