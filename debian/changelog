@@ -21,8 +21,6 @@ libid3tag (0.15.1b-15) UNRELEASED; urgency=medium
   * Strip unusual field spacing from debian/control.
   * Refer to specific version of license GPL-2+.
   * Fix day-of-week for changelog entry 0.15.1b-8.
-
-  [ Vagrant Cascadian ]
   * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
     Closes: #1020661
 

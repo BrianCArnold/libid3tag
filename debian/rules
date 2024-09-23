@@ -6,7 +6,7 @@
 
 DEB_DH_MAKESHLIBS_ARGS_libid3tag0 = -V 'libid3tag0 (>= 0.15.1b)'
 
-DEB_CONFIGURE_EXTRA_FLAGS=--enable-shared --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) CFLAGS="-ffile-prefix-map=$(CURDIR)=."
+export DEB_CFLAGS_MAINT_APPEND=-ffile-prefix-map=$(CURDIR)=.
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 DEVPKG := libid3tag0-dev
@@ -14,16 +14,19 @@ DEVPKG := libid3tag0-dev
 %:
 	dh $@
 
-override_dh_install:
-	dh_install
-	mkdir -p debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
-	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/id3tag.pc
-
 override_dh_clean:
 	dh_clean
 	# annoying lintian errors
 	rm -f config.cache libz/config.log \
 		libz/config.status compat.c frametype.c
+
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-shared
+
+override_dh_install:
+	dh_install
+	mkdir -p debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > debian/$(DEVPKG)/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/id3tag.pc
 
 override_dh_missing:
 	find debian -name "*.la" -delete
