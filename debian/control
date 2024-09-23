@@ -23,7 +23,7 @@ Package: libid3tag0-dev
 Architecture: any
 Section: libdevel
 Depends: libid3tag0 (= ${binary:Version}), ${misc:Depends}, pkgconf, zlib1g-dev
-Description: ID3 tag reading library from the MAD project
+Description: ID3 tag reading library from the MAD project (devel)
  ID3 tag manipulation library with full support for reading ID3v1, ID3v1.1,
  ID3v2.2, ID3v2.3, and ID3v2.4 tags, as well as support for writing ID3v1,
  ID3v1.1, and ID3v2.4 tags.
