@@ -1,0 +1,75 @@
+Author: Andreas Tille <tille@debian.org>
+Last-Update: Sat, 05 Oct 2024 16:04:15 +0200
+Description: Attempt to create static library in addition to shared library (default)
+FIXME: That's not working
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,7 @@ include(GNUInstallDirs)
+ # Build
+ #
+ 
+-add_library(id3tag
++set(SOURCES
+     compat.c
+     crc.c
+     debug.c
+@@ -34,9 +34,35 @@ add_library(id3tag
+     util.c
+     version.c
+ )
+-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/id3tag.h.in ${CMAKE_CURRENT_BINARY_DIR}/id3tag.h @ONLY)
++
++# Generate header file
++set(HEADER_FILE ${CMAKE_CURRENT_BINARY_DIR}/id3tag.h)
++configure_file(${CMAKE_CURRENT_SOURCE_DIR}/id3tag.h.in ${HEADER_FILE} @ONLY)
++
++# Ensure the header is generated before building
++add_custom_command(
++    OUTPUT ${HEADER_FILE}
++    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/id3tag.h ${HEADER_FILE}
++    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/id3tag.h.in
++    COMMENT "Generating id3tag.h"
++)
++
++# Add include directories
++include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
++
++# Build shared library
++add_library(id3tag SHARED ${SOURCES})
++add_dependencies(id3tag ${HEADER_FILE})
+ target_include_directories(id3tag PUBLIC
+-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
++    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
++    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
++)
++
++# Build static library
++add_library(libid3tag_static STATIC ${SOURCES})
++set_target_properties(libid3tag_static PROPERTIES OUTPUT_NAME libid3tag)
++add_dependencies(libid3tag_static ${HEADER_FILE})
++target_include_directories(libid3tag_static PUBLIC
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+ )
+@@ -81,7 +107,7 @@ target_link_libraries(id3tag PUBLIC ZLIB
+ include(CMakePackageConfigHelpers)
+ 
+ # Library files
+-install(TARGETS id3tag
++install(TARGETS id3tag libid3tag_static
+   EXPORT id3tagTargets
+   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+@@ -90,10 +116,7 @@ install(TARGETS id3tag
+ )
+ 
+ # Header files
+-install(
+-  FILES "${CMAKE_CURRENT_BINARY_DIR}/id3tag.h"
+-  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+-)
++install(FILES "${HEADER_FILE}" DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+ 
+ # pkgconfig
+ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packaging/id3tag.pc.in
