@@ -26,6 +26,7 @@ libid3tag (0.16.3-1) UNRELEASED; urgency=medium
   * Fix day-of-week for changelog entry 0.15.1b-8.
   * Pass -ffile-prefix-map in CFLAGS to enable reproducible builds
     Closes: #1020661
+  * Build-Depends: cmake
 
  -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
 
