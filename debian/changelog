@@ -1,4 +1,4 @@
-libid3tag (0.16.3-1) UNRELEASED; urgency=medium
+libid3tag (0.16.3-1) unstable; urgency=medium
 
   * Team upload.
     Closes: #1083201
@@ -28,7 +28,7 @@ libid3tag (0.16.3-1) UNRELEASED; urgency=medium
   * Remove upstream tarball signature file which is not provided at the
     new location
 
- -- Andreas Tille <tille@debian.org>  Mon, 23 Sep 2024 08:37:47 +0200
+ -- Andreas Tille <tille@debian.org>  Wed, 09 Oct 2024 07:37:18 +0200
 
 libid3tag (0.15.1b-14) unstable; urgency=medium
 
