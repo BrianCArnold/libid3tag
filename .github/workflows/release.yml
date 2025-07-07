@@ -1,0 +1,61 @@
+
+name: build
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        debcontainers: [ 'bookworm', 'trixie', 'sid' ]
+    container:
+      image: debian:${{ matrix.debcontainers }}
+    steps:
+      - name: Install required packages
+        run: |
+          if [[ -f "/etc/apt/sources.list.d/debian.sources" ]]; then
+            sed -E 's/Types: deb/Types: deb deb-src/g' -i /etc/apt/sources.list.d/debian.sources
+          fi
+          if [[ -f "/etc/apt/sources.list" ]]; then
+            sed -E 's/^deb/deb deb-src/g' -i /etc/apt/sources.list
+          fi
+          apt update
+          apt install git debhelper-compat cmake gettext zlib1g-dev gperf build-essential -y
+          #dpkg-buildpackage -B
+      - name: Prep Build Directories
+        run: |
+          mkdir src bld
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+        with:
+          path: src/libid3tag
+      - name: Build packages
+        working-directory: ./src/libid3tag
+        run: |
+          dpkg-buildpackage -B
+      - name: Copy output to bld directory
+        run: |
+          cp ./src/*.deb ./bld/
+          cp ./src/*.buildinfo ./bld/
+          cp ./src/*.changes ./bld/
+
+      - name: Build packages
+        working-directory: ./bld
+        run: |
+          for f in *
+          do
+            mv "${f}" "${{ matrix.debcontainers }}_${f}"
+          done
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: bld/**
+
